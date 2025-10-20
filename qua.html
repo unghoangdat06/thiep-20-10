@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Thiệp chúc mừng 20/10 💐</title>
+  <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+  <h1>💐 Lời chúc 20/10 dành cho Mẹ yêu 💖</h1>
+
+  <div class="container">
+    <input type="text" id="nameInput" placeholder="Mẹ nhập tên đầy đủ vào chỗ này nhaaa">
+    <button onclick="showGift()">Nhận quà 🎁</button>
+  </div>
+
+  <div class="message" id="message">
+    <p>Hôm nay ngày 20/10, con chúc mẹ <span id="receiverName"></span> ngày càng trẻ đẹp, luôn khỏe mạnh và sẽ mãi là người mẹ tuyệt vời của con. Con sẽ cố gắng làm việc, chăm sóc và bên cạnh mẹ để mẹ luôn là người mẹ hạnh phúc nhất ❤️</p>
+  </div>
+
+  <img src="1760923248750.png" class="qr" id="qrImage" alt="Mã QR Nhận quà">
+
+  <audio id="music" src="meyeu.mp3" preload="auto"></audio>
+
+  <script>
+    function showGift() {
+      const name = document.getElementById('nameInput').value.trim();
+      const message = document.getElementById('message');
+      const qr = document.getElementById('qrImage');
+      const music = document.getElementById('music');
+      const receiverName = document.getElementById('receiverName');
+
+      if (name === "") {
+        alert("Vui lòng nhập tên người nhận nha 💕");
+        return;
+      }
+
+      receiverName.textContent = name;
+      message.style.display = "block";
+      qr.style.display = "block";
+      music.play();
+      for (let i = 0; i < 10; i++) {
+        createFlower();
+      }
+    }
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.textContent = '🌸';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (3 + Math.random() * 4) + 's';
+      flower.style.fontSize = (15 + Math.random() * 15) + 'px';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 7000);
+    }
+  </script>
+</body>
+</html>
